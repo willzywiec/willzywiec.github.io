@@ -117,7 +117,7 @@ img {
 }
 
 header {
-  width:400px; /* 270px */
+  width:426px; /* 270px */
   float:left;
   position:fixed;
 }
@@ -139,7 +139,7 @@ header ul {
   border-radius:5px;
   border:1px solid #c5c6c7;
   box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
-  width:400px; /* 270px */
+  width:426px; /* 270px */
 }
 
 header li {
@@ -221,7 +221,7 @@ hr {
 }
 
 footer {
-  width:400px; /* 270px */
+  width:426px; /* 270px */
   float:left;
   position:fixed;
   bottom:50px;
@@ -280,7 +280,7 @@ footer {
   }
 }
 
-@media print, screen and (max-width: 400px) { /* 270px */
+@media print, screen and (max-width: 426px) { /* 270px */
   body {
     padding:15px;
   }
