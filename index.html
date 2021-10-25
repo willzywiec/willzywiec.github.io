@@ -32,11 +32,17 @@
         <h1>Updates</h1>
 
         <p><strong>October 24, 2021</strong>
+          I indexed all the <b>10 particles got lost</b> errors, plotted a few of them, and saw pretty clear geometry errors.
+          I refactored a couple lines of code and was able to fix and regnerate the input decks.
+          Rerunning 776 input decks...
+        </p>
+
+        <p><strong>October 24, 2021</strong>
           <br>Final results:
         </p><p>
           <a href="images/error2.png"><img src="images/error2.png" width="500" alt=""/></a>
         </p><p>
-          I looked at the output and <b>bad trouble</b> and <b>impossible</b> turned out to be coincident errors, so I removed <b>impossible</b>.
+          I looked at the output and <b>bad trouble</b> and <b>impossible</b> turned out to be redundant failures, so I ignored <b>impossible</b>.
           This caused the minimum success rate to rise to 79.33%, which isn't much of an improvement.
           Now it's time to troubleshoot geometry.
         </p>
@@ -47,7 +53,7 @@
           <a href="images/error1.png"><img src="images/error1.png" width="500" alt=""/></a>
         </p><p>
           Overall, this represents a minimum success rate of 76.18%, which isn't terrible.
-          I haven't checked how many duplicates exist, but I don't really care at this point because the goal is to get to 100%.
+          I haven't checked for failure redundancy, but I don't really care at this point because the goal is to get to 100%.
         </p>
 
         <p><strong>October 23, 2021</strong>
