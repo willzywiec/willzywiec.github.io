@@ -12,6 +12,22 @@ color scheme
 
 */
 
+/* start https://stackoverflow.com/questions/39858998/zoom-in-and-out-on-mouse-click-with-css */
+input[type=checkbox] {
+  display: none;
+}
+
+.container img {
+  transition: transform 0.25s ease;
+  cursor: zoom-in;
+}
+
+input[type=checkbox]:checked ~ label > img {
+  transform: scale(3);
+  cursor: zoom-out;
+}
+/* end */
+
 body {
   background:#1f2833;
   padding:20px; /* 50px */
