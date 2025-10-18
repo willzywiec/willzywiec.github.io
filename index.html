@@ -38,7 +38,7 @@
         </p>
 
         <p><strong>October 18, 2025</strong>
-          <br>AlphaFit (v60) is out. I implemented and then ended up dropping lag-1 autocovariance fits and a few other methods because they weren't bringing universal solutions to the table. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s). I programmed solutions for alpha ratio and a few other things, but I'm waiting for the next sub-nanosecond neutron/gamma-ray instrument to be built before I deploy these features.
+          <br>AlphaFit (v60) is out. I implemented and then dropped lag-1 autocovariance and a few other methods because they weren't bringing universal solutions to the table. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s). I programmed solutions for alpha ratio and a few other things, but I'm waiting for the next fast neutron/gamma-ray instrument to be built before I deploy these features.
         </p><p>
           <div class="container">
             <input type="checkbox" id="alphafit_v60">
@@ -47,7 +47,8 @@
             </label>
           </div>
         </p><p>
-          I still need to implement (1) standoff correction for detector efficiency, (2) common alpha ratio mass assessments, and (3) empirical testing/adjustment of Y3/Y2 ratios using RTOSim.
+          A lot of the work I've done over the past 3 months involved stress-testing AlphaFit with 250M+ time-tagged events or 24-hour measurements and figuring out how to efficiently process large amounts of data on a laptop. My focus for the next 3 months is going to be on building a set of real-world and simulated benchmarks.
+          <br>I still need to implement (1) standoff correction for detector efficiency, (2) common alpha ratio mass assessments, and (3) empirical testing/adjustment of Y3/Y2 ratios using RTOSim.
         </p>
 
         <p><strong>July 3, 2025</strong>
