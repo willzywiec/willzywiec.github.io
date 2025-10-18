@@ -38,7 +38,7 @@
         </p>
 
         <p><strong>October 18, 2025</strong>
-          <br>AlphaFit (v60) is out. I implemented and then ended up dropping lag-1 autocovariance fits and a few other methods because they weren't bringing universal solutions to the table. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s). I programmed solutions for alpha ratio and a few other things, but I'm waiting for the next sub-nanosecond neutron/gamma-ray instrument to be built.
+          <br>AlphaFit (v60) is out. I implemented and then ended up dropping lag-1 autocovariance fits and a few other methods because they weren't bringing universal solutions to the table. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s). I programmed solutions for alpha ratio and a few other things, but I'm waiting for the next sub-nanosecond neutron/gamma-ray instrument to be built before I deploy these features.
         </p><p>
           <div class="container">
             <input type="checkbox" id="alphafit_v60">
@@ -46,6 +46,8 @@
               <img src="images/alphafit_v60.PNG" width="500" alt=""/>
             </label>
           </div>
+        </p><p>
+          <br>I still need to implement (1) standoff correction for detector efficiency, (2) common alpha ratio mass assessments, and (3) empirical testing/adjustment of Y3/Y2 ratios using RTOSim.
         </p>
 
         <p><strong>July 3, 2025</strong>
