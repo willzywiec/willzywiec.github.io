@@ -19,7 +19,7 @@
         <p>
           <img src="images/submariner.jfif" height="281" alt=""/>
         </p><p>
-          I built this website to learn a little HTML and CSS.
+          I built this website to learn a little HTML and CSS. It's mostly a collection of open-source research and memes.
         </p><p>
           The link to the latest <i>criticality</i> CRAN build is <a href="https://cran.rstudio.com/web/packages/criticality/index.html" target="_blank"><strong>here</strong></a>.
         </p><p><center>
@@ -38,7 +38,7 @@
         </p>
 
         <p><strong>October 18, 2025</strong>
-          <br>AlphaFit (v60) is out. I implemented and then dropped lag-1 autocovariance and a few other methods because they weren't universally applicable to common configurations. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s).
+          <br>AlphaFit (v60) is out. I implemented and then dropped lag-1 autocovariance and a few other methods because they weren't universally applicable. AlphaFit uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication and assess Beff, detector efficiency, and neutron lifetime(s).
         </p><p>
           <div class="container">
             <input type="checkbox" id="alphafit_v60">
@@ -47,7 +47,7 @@
             </label>
           </div>
         </p><p>
-          A lot of the work I've done over the past 3 months involved stress-testing AlphaFit with (simulated) 250M+ time-tagged events and multi-day measurements, so I could figure out how to efficiently process large datasets on a laptop. My focus for the next 3 months is going to be on building a (simulated) measurement database, so I can 'unfold' timing. I still need to implement (1) standoff correction for detector efficiency, (2) common alpha ratios and mass calculations, and (3) empirical testing and adjustment of Y3/Y2 ratios. The dotted purple line on the Doubles (Y2) plot is the Hubbard fit, which is based on the only equation I've found that universally solves point kinetics parameters within reasonable bounds. The equation itself needs an update, so I'm going to build a machine learning pipeline to estimate space- and energy-dependent variables to correct individual fits.
+          A lot of the work I've done over the past 3 months involved stress-testing AlphaFit using (simulated) multi-day measurements, so I could figure out how to efficiently process large datasets on a laptop. The dotted purple line on the Doubles (Y2) plot is the Hubbard fit, which is based on the only equation I've found that universally solves point kinetics parameters within reasonable bounds. The equation itself needs an update, so I'm going to build a machine learning pipeline to estimate space- and energy-dependent variables to correct individual fits.
         </p>
 
         <p><strong>July 3, 2025</strong>
