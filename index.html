@@ -21,9 +21,9 @@
         </p><p>
           This website is a collection of personal projects and memes, which are extensions of graduate research I performed at Johns Hopkins and George Washington University.
         </p><p>
-          The views and opinions expressed on this site are my own and do not necessarily reflect the official policy or position of my employer, any government agency, or the U.S. Government.
-        </p><p>
           The link to the latest <i>criticality</i> CRAN build is <a href="https://cran.rstudio.com/web/packages/criticality/index.html" target="_blank"><strong>here</strong></a>.
+        </p><p>
+          The views and opinions expressed on this site are my own and do not necessarily reflect the official policy or position of my employer, any government agency, or the U.S. Government.
         </p><p><center>
           <a href="https://github.com/willzywiec" target="_blank"><img src="images/github.png" width="80" alt=""/></a>
           <a href="https://www.linkedin.com/in/william-zywiec-363812137/" target="_blank"><img src="images/linkedin.png" width="80" alt=""/></a>
@@ -40,11 +40,11 @@
         </p>
 
         <p><strong>November 13, 2025</strong>
-          <br>I built a production version of AlphaFit, which is compiled in C and includes LaTeX documentation, an improved user interface, hotkeys, and a few Easter eggs. It can also run streaming neutron and gamma-ray data from an operating reactor, so there's no more guess-and-check with performing measurements over a specific duration to ensure convergence.
+          <br>I built a production version of AlphaFit, which is compiled in C and includes LaTeX documentation, an improved user interface, hotkeys, and a few Easter eggs. It can also run on streaming neutron and gamma-ray data, so there's no more guess-and-check with performing measurements over a specific duration to ensure statistical convergence.
         </p>
 
         <p><strong>October 18, 2025</strong>
-          <br>AlphaFit (v60) is out. I implemented and then removed lag-1 autocovariance and a few other methods because they weren't universally applicable to fast, epithermal, and thermal systems. AlphaFit currently uses a simple Y3/Y2 ratio to assess multiplication, combined with novel 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication, Beff, detector efficiency, and neutron lifetime(s).
+          <br>AlphaFit (v60) is out. I implemented and then removed lag-1 autocovariance and a few other methods because they weren't universally applicable to fast, epithermal, and thermal systems. AlphaFit currently uses a novel Y3/Y2 ratio method to assess multiplication, combined with 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication, Beff, detector efficiency, and neutron lifetime(s).
         </p><p>
           <div class="container">
             <input type="checkbox" id="alphafit_v60">
@@ -53,7 +53,7 @@
             </label>
           </div>
         </p><p>
-          A lot of the work I've done over the past 3 months involved stress-testing AlphaFit using (simulated) multi-day measurements, so I could figure out how to efficiently process large datasets on a laptop. The dotted purple line on the Doubles (Y2) plot is the Hubbard fit, which is based on the only equation I've found that universally solves point kinetics parameters within reasonable bounds. The equation itself needs an update, so I'm going to build a machine learning pipeline to estimate space- and energy-dependent variables to correct individual fits.
+          A lot of the work I've done over the past 3 months involved stress-testing AlphaFit using (simulated) multi-day measurements, so I could figure out how to efficiently process large datasets on a laptop. The dotted purple line on the Doubles (Y2) plot is the Hubbard fit, which is based on the only equation I've found that directly solves point kinetics parameters within reasonable physical bounds. The fits sometimes appear questionable, so I'm probably just going to comment them out and forget they exist for a while.
         </p>
 
         <p><strong>July 3, 2025</strong>
