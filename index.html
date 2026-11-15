@@ -1,288 +1,269 @@
 <!doctype html>
-<html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William Zywiec</title>
+<link rel="icon" href="images/cat.png">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#ffffff; --ink:#1d2228; --muted:#5d6670; --rule:#e3e0d8;
+  --accent:#0b4f9c; --accent-soft:#e8eff8; --tag:#f1efe9;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14171b; --panel:#1b1f24; --ink:#e7e9ec; --muted:#9aa3ad; --rule:#2c3238;
+         --accent:#7fb2f0; --accent-soft:#1f2a38; --tag:#242a31; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:14.5px/1.6 Arial, Helvetica, sans-serif;}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 48px 420px;position:relative}
+aside{position:fixed;top:0;left:max(24px,calc((100vw - 1220px)/2 + 24px));width:340px;height:100vh;padding:40px 0;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+aside img.portrait{align-self:flex-start;flex:none;width:100%}
+aside h1{font-size:30px;line-height:1.15;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--rule);font-weight:600;letter-spacing:-.01em}
+aside h1 small{font-size:16px;color:var(--muted);font-weight:400}
+aside .role{color:var(--muted);font-size:14.5px;margin:0 0 20px;font-family:Arial, Helvetica, sans-serif}
+aside img.portrait{max-width:100%;max-height:calc(100vh - 430px);min-height:60px;width:auto;object-fit:contain;border-radius:6px;display:block;margin-bottom:18px}
+aside p{font-size:14.5px;color:var(--muted);margin:0 0 14px}
+aside p.disclaimer{font-size:12px;line-height:1.5}
+aside nav{font-family:Arial, Helvetica, sans-serif;font-size:14px;margin:20px 0;border-top:1px solid var(--rule);padding-top:14px}
+aside nav a{display:block;padding:3px 0;color:var(--ink);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600} aside nav a:hover{color:var(--accent);text-decoration:none}
+.social{display:flex;gap:12px;margin-top:8px}
+.social img{width:38px;height:38px;opacity:.9;background:#fff;border-radius:50%;padding:3px} .social img:hover{opacity:1}
+main{padding-top:40px}
+main h2{font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  font-family:Arial, Helvetica, sans-serif;font-weight:600;line-height:1.15;margin:0 0 16px;padding-bottom:15px;border-bottom:1px solid var(--rule)}
+section{margin-bottom:56px;scroll-margin-top:24px}
+.feature{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:24px 26px;margin-bottom:8px}
+.date{font-family:Arial, Helvetica, sans-serif;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+.feature h3{font-size:22px;margin:4px 0 10px;font-weight:600}
+.feature img{width:100%;border:1px solid var(--rule);border-radius:4px;margin:16px 0;display:block;cursor:zoom-in}
+.cap{font-size:13.5px;color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.card .thumb{height:210px;background:#fff;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--rule);cursor:zoom-in}
+.card .thumb img{max-width:100%;max-height:100%;object-fit:contain;padding:10px}
+.card .body{padding:16px 18px 18px}
+.card h4{margin:0 0 6px;font-size:18px;font-weight:600}
+.card p{margin:0 0 10px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;font-family:Arial, Helvetica, sans-serif}
+.tags span{font-size:11.5px;background:var(--tag);color:var(--muted);padding:2px 8px;border-radius:10px}
+.card .link{font-family:Arial, Helvetica, sans-serif;font-size:13px;margin-top:10px;display:inline-block}
+.log article{padding:18px 0;border-bottom:1px solid var(--rule)}
+.log article:last-child{border-bottom:0}
+.log article:first-child{padding-top:0}
+.log p{margin:4px 0 0}
+.log .figs{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.log .figs:last-child{margin-bottom:0}
+.log .figs + p{margin-top:0}
+.log .figs img{height:150px;border:1px solid var(--rule);border-radius:4px;cursor:zoom-in;background:#fff}
+blockquote{margin:6px 0 0;padding-left:14px;border-left:3px solid var(--rule);font-style:italic}
+.video-box{max-width:400px}
+.video{position:relative;padding-top:56.25%;border-radius:8px;overflow:hidden;border:1px solid var(--rule)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+footer{font-family:Arial, Helvetica, sans-serif;font-size:12.5px;color:var(--muted);padding-top:12px;border-top:1px solid var(--rule)}
+#lb{position:fixed;inset:0;background:rgba(10,12,15,.88);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;z-index:10}
+#lb.on{display:flex} #lb img{max-width:100%;max-height:100%;background:#fff;border-radius:4px}
+@media (max-width:900px){
+  .wrap{padding:28px 16px} aside{margin-bottom:28px}
+  aside{position:static;width:auto;height:auto;display:block;padding:0;overflow:visible} main{padding-top:0!important} aside img.portrait{max-width:320px;max-height:none;width:100%}
+  .grid{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  body{font-size:15px;-webkit-text-size-adjust:100%}
+  .wrap{padding:15px} aside{margin-bottom:20px}
+  aside h1{font-size:26px}
+  aside img.portrait{max-width:none;width:100%}
+  aside nav{display:flex;gap:18px;margin:14px 0}
+  .feature{padding:16px 14px;border-radius:6px}
+  .feature h3{font-size:20px}
+  .card .thumb{height:180px}
+  .log .figs img{height:auto;max-width:100%}
+  .log .figs{flex-direction:column}
+  section{margin-bottom:36px}
+  .video{border-radius:6px} .video-box{max-width:none}
+}
+img,iframe{max-width:100%}
+html,body{overflow-x:hidden}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Will Zywiec</title>
-    <link rel="shortcut icon" href="images/cat.png">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  </head>
+<aside>
+  <h1>William Zywiec<small>, PhD</small></h1>
+  <img class="portrait" src="images/solaris.jpg" alt="">
+  <p>This website is a collection of personal projects and memes, which are extensions of graduate research I performed at GWU, JHU, and Penn State.</p>
+  <p class="disclaimer">The views and opinions expressed on this site are my own and do not necessarily reflect the official policy or position of my employer, any government agency, or the U.S. Government.</p>
+  <nav>
+    <a href="#latest">Latest</a>
+    <a href="#projects">Projects</a>
+    <a href="#log">Log</a>
+  </nav>
+  <div class="social">
+    <a href="https://github.com/willzywiec" target="_blank"><img src="images/github.png" alt="GitHub"></a>
+    <a href="https://www.linkedin.com/in/william-zywiec-363812137/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+    <a href="https://github.com/alphanso-org/alphanso" target="_blank" title="ALPHANSO"><img src="images/alphanso_logo.png" alt="ALPHANSO"></a>
+  </div>
+</aside>
 
-  <body>
-    <div class="wrapper">
+<main>
 
-      <header>
-        <h1>Will Zywiec<font size="-2">, PhD</font></h1>
-        <p>
-          <img src="images/submariner.jfif" height="281" alt=""/>
-        </p><p>
-          This website is a collection of personal projects and memes, extensions of graduate research I did at GWU and JHU.
-        </p><p>
-          The views and opinions expressed on this site are my own and do not necessarily reflect the official policy or position of my employer, any government agency, or the U.S. Government.
-        </p><p><center>
-          <a href="https://github.com/willzywiec" target="_blank"><img src="images/github.png" width="75" alt=""/></a>
-          <a href="https://www.linkedin.com/in/william-zywiec-363812137/" target="_blank"><img src="images/linkedin.png" width="75" alt=""/></a>
-          <a href="https://stackoverflow.com" target="_blank"><img src="images/stackoverflow.png" width="75" alt=""/></a>
-        </center></p>
-      </header>
+<section id="listening">
+  <div class="video-box"><div class="video"><iframe src="https://www.youtube.com/embed/bV-hSgL1R74?autoplay=1" title="Orbital - Halcyon On and On" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+</section>
 
-      <section>
+<section id="latest">
+  <h2>Latest</h2>
+  <div class="feature">
+    <div class="date">November 14, 2026</div>
+    <h3>AlphaFit</h3>
+    <p>AlphaFit now fits Feynman-&alpha; doubles (Y<sub>2</sub>) and triples (Y<sub>3</sub>), Rossi-&alpha;, and the cross-power spectral density on the same record, and it estimates k<sub>eff</sub> two ways: a delayed-neutron fit to Y<sub>2</sub> and lag-1 autocovariance, which is back in. It uses every event in the record, and it can analyze data while a measurement is still running, so I no longer have to guess how long to count.</p>
+    <img src="images/alphafit_2026-11.png" alt="AlphaFit">
+    <p class="cap">BeRP ball, bare at 40 cm, 5-minute count.</p>
+  </div>
+</section>
 
-        <h1>Updates</h1>
-        <p>
-          <!--iframe width="375" height="281"-->
-          <iframe width="100%" height="281" src="https://www.youtube.com/embed/bV-hSgL1R74?autoplay=1" title="Orbital - Halcyon On and On" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <br><br>"Now and then we had a hope that if we lived and were good, God would permit us to be pirates." -Mark Twain
-        </p>
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
 
-        <p><strong>March 21, 2026</strong>
-          <br>Untangling a mess of subcritical and delayed-critical alpha eigenvalue benchmarks right now.
-        </p>
 
-        <p><strong>November 23, 2025</strong>
-          <br>With some help from Claude, I put gravitational acceleration and solid of revolution geometry in OpenMC. Ultracold neutron experiments are next!
-        </p>
 
-        <p><strong>November 13, 2025</strong>
-          <br>The production version of AlphaFit is out. It's compiled in C and includes Rossi-α fits, uncertainty analysis, LaTeX documentation, and a couple Easter eggs. It can also run streaming neutron and gamma ray data, which means no more guess-and-check to figure out how long a measurement needs to run before it converges.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="alphafit_prod">
-            <label for="alphafit_prod">
-              <img src="images/alphafit_prod.PNG" width="500" alt=""/>
-            </label>
-          </div>
-        </p><p>
 
-        <p><strong>October 18, 2025</strong>
-          <br>AlphaFit now uses a novel Y3/Y2 ratio method for assessing multiplication, combined with 2-step Hage-Cifarelli and spectral methods to cross-validate multiplication, Beff, detector efficiency, and neutron lifetime(s).
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="alphafit_v60">
-            <label for="alphafit_v60">
-              <img src="images/alphafit_v60.PNG" width="500" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          Most of the past 3 months has been spent stress-testing AlphaFit. The dotted purple line on the Doubles (Y2) plot is the Hubbard fit, one of the many point kinetics methods that didn't make the cut. Lag-1 autocovariance showed some initial promise but didn't hold up across a few test cases, so I pulled it. I like stress-testing because it shows how fragile or resilient these methods actually are.
-        </p>
 
-        <p><strong>July 3, 2025</strong>
-          <br>AlphaFit v32 is now deployed with third-order neutron correlation and an amplitude-based method for estimating He-3 detector efficiency. Still chipping away at lag-1 autocovariance.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="alphafit_v32">
-            <label for="alphafit_v32">
-              <img src="images/alphafit_v32.PNG" width="500" alt=""/>
-            </label>
-          </div>
-        </p>
 
-        <p><strong>February 5, 2025</strong>
-          <br>Making progress on third-order neutron correlation and lag-1 autocovariance methods. Took a break to refactor some dissertation code using Claude and ChatGPT—migrated it from R+Keras/TensorFlow to Python+Torch.
-        </p>
-
-        <p><strong>September 11, 2024</strong>
-          <br>Developing a better third-order neutron correlation method using open-source datasets from ICSBEP and IRPhE.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="endo">
-            <label for="endo">
-              <img src="images/endo.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>May 19, 2024</strong>
-          <br>Fixing less than 20 lines of code that take 24+ hours to run.
-        </p>
-
-        <p><strong>August 11, 2023</strong>
-          <br>At Preservation Pub reading an amazing dissertation beneath a tree made of lights. #toowildfriday ☢️🤖
-        </p>
-
-        <p><strong>June 15, 2023</strong>
-          <br>Whenever I run a physics code that crashes with nondescript error messages:
-        </p><p>
-          <img src="images/frodo.png" width="300" alt=""/>
-        </p>
-
-        <p><strong>April 15, 2023</strong>
-          <br>Started modeling polymer mixtures to study and optimize their radiation transport properties. Most of the test samples I make look like tiny pink cupcakes.
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Fixed minor geometry and density logic errors—success rate is now 100%. There are still a few cross section calls and tallies I need to adjust to make the MCNP simulations more accurate, but everything works. Reconfigured the script to check and plot errors to verify successful completion of all 10,000 simulations.
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Fixed a material error, which eliminated all but 24 failures. Minimum success rate is now 99.78%.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error6">
-            <label for="error6">
-              <img src="images/error6.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Fixed a density error, which eliminated the rest of the <b>fatal errors</b>. Minimum success rate is now 96.87%.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error5">
-            <label for="error5">
-              <img src="images/error5.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Fixed a source particle distribution error, which reduced the <b>fatal errors</b> and eliminated all <b>wrong length</b> failures. Minimum success rate is now 95.2%.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error4">
-            <label for="error4">
-              <img src="images/error4.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>The <b>10 particles got lost</b> failures are gone. Minimum success rate is now 86.88%.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error3">
-            <label for="error3">
-              <img src="images/error3.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Indexed all the <b>10 particles got lost</b> failures, plotted a few, and found clear geometry errors. Refactored a couple lines of code to fix the affected input decks. Now rerunning 776 MCNP simulations.
-        </p>
-
-        <p><strong>October 24, 2021</strong>
-          <br>Preliminary results:
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error2">
-            <label for="error2">
-              <img src="images/error2.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          Looked at the output and found that <b>bad trouble</b> and <b>impossible</b> were redundant failures, so I ignored <b>impossible</b>. This bumped the minimum success rate to 79.33%, which isn't much of an improvement.
-        </p>
-
-        <p><strong>October 23, 2021</strong>
-          <br>Took a brief pause after 2,259 MCNP simulations and plotted the results:
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="error1">
-            <label for="error1">
-              <img src="images/error1.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          Overall, this represents a minimum success rate of 76.18%, which isn't terrible. Haven't checked for failure redundancy, but I don't really care at this point because the goal is 100%.
-        </p>
-
-        <p><strong>October 23, 2021</strong>
-          <br>I'm building a few different MCNP simulation databases, and the input code I inherited is messy and fails a lot, so I'll be posting these failures as I iteratively fix them. Keywords I'm searching for: <b>bad trouble</b>, <b>fatal error</b>, <b>impossible</b>, <b>wrong length</b>, and <b>10 particles got lost</b>, with maybe a few more to come.
-        </p><p>
-          The rules are simple: if there are one or more unique keywords in an output file, all will be counted; redundant keywords in the same output file will be ignored. As of right now, 492 out of 10,000 simulations are finished. 🎃
-        </p>
-
-        <p><strong>April 17, 2021</strong>
-          <br>This k-effective contour plot was made using a deep neural network metamodel of MCNP6.2 simulations. It represents 0-4 kg of alpha-phase plutonium, homogeneously dispersed in a sphere of water with one inch of water reflection.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="contour1">
-            <label for="contour1">
-              <img src="images/contour1.png" width="300" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          The results are very accurate (MAE = 2.5e-04) and outperform state-of-the-art spline fitting techniques by more than an order of magnitude. This graph is impossible to appreciate because it's more accurate than the width of a pixel on whatever monitor you're using.
-        </p>
-
-        <p><strong>April 16, 2021</strong>
-          <br>Some graphs from assignments I completed as a graduate student at JHU. Made with R and ggplot2, formatted to match the style in <i>Getting Started with Minitab</i>, a piece of software I've never used.
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="columns">
-            <label for="columns">
-              <img src="images/columns.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="graphs">
-            <label for="graphs">
-              <img src="images/graphs.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="shipping">
-            <label for="shipping">
-              <img src="images/shipping.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p>
-        <p>
-          These next graphs are from an airport TSA body scanner project, where I used R and Arena to simulate passenger queues, alarm rates, time delays, and wait times to determine how many scanners were needed to keep under 1% of passengers waiting 30+ minutes. The first two sets look spotty because they were based on only a few simulations. All of this was tested using real data from Oakland International Airport.
-        </p>
-        <p>
-          <div class="container">
-            <input type="checkbox" id="tile1">
-            <label for="tile1">
-              <img src="images/tile1.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="tile2">
-            <label for="tile2">
-              <img src="images/tile2.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="tile3">
-            <label for="tile3">
-              <img src="images/tile3.png" width="250" alt=""/>
-            </label>
-          </div>
-        </p>
-        <p>
-          Even after switching luggage scanners in Terminal 2, OAK's queue times remain the lowest in the nation for an airport of its size, geographic location, population density, and throughput.
-        </p>
-
-        <p><strong>May 5, 2013</strong>
-          <br>Have you ever operated a nuclear reactor? Yes? Well, have you ever achieved 500% reactor power by ejecting a rod from a four-loop Westinghouse PWR modified to burn MOX fuel?
-        </p><p>
-          <div class="container">
-            <input type="checkbox" id="power">
-            <label for="power">
-              <img src="images/power.jpg" width="300" alt=""/>
-            </label>
-          </div>
-        </p>
-
-        <p><strong>Jan 10, 2011</strong>
-          <br>"All the speed he took, all the turns he'd taken and the corners he'd cut in Night City, and still he'd see the matrix in his sleep, bright lattices of logic unfolding across that colorless void." -William Gibson
-        </p>
-
-      </section>
-
+    <div class="card">
+      <div class="thumb"><img src="images/alphanso_pube.png" alt=""></div>
+      <div class="body">
+        <h4>ALPHANSO</h4>
+        <p>An open-source Python code for (&alpha;,n) neutron sources. The plot is a PuBe spectrum.</p>
+        <a class="link" href="https://arxiv.org/abs/2603.17719" target="_blank">Paper</a> &middot;
+        <a class="link" href="https://github.com/alphanso-org/alphanso" target="_blank">GitHub</a>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
-  
+
+  </div>
+</section>
+
+<section id="log">
+  <h2>Log</h2>
+  <div class="log">
+
+    <article>
+      <div class="date">October 24, 2026</div>
+      <p>Rossi-&alpha; paper is out. I added a static &alpha; eigenvalue solver to OpenMC and compared it with Rossi-&alpha; measurements from 21 delayed-critical benchmarks and 33 subcritical configurations.</p>
+      <p><a href="https://www.tandfonline.com/action/doSearch?AllField=Rossi-alpha+Benchmark+Validation+of+a+Static+Alpha+Eigenvalue+Capability+in+OpenMC" target="_blank">NS&amp;E</a> &middot; <a href="https://arxiv.org/abs/2606.00907" target="_blank">arXiv</a></p>
+    </article>
+
+    <article>
+      <div class="date">November 24, 2025</div>
+      <blockquote>"Now and then we had a hope that if we lived and were good, God would permit us to be pirates." -Mark Twain</blockquote>
+    </article>
+
+    <article>
+      <div class="date">November 23, 2025</div>
+      <p>I built a novel &alpha; eigenvalue solver, gravitational acceleration, and solid of revolution geometry in OpenMC in about 5 days, with some help from Claude. Ultracold neutron experiments are next!</p>
+    </article>
+
+    <article>
+      <div class="date">May 19, 2024</div>
+      <p>Fixing less than 20 lines of code that take 24+ hours to run.</p>
+    </article>
+
+    <article>
+      <div class="date">August 11, 2023</div>
+      <p>At Preservation Pub reading an amazing dissertation beneath a tree made of lights. #toowildfriday ☢️🤖</p>
+    </article>
+
+    <article>
+      <div class="date">June 15, 2023</div>
+      <p>Whenever I run a physics code that crashes with nondescript error messages:</p>
+      <div class="figs"><img src="images/frodo.png" alt=""></div>
+    </article>
+
+    <article>
+      <div class="date">April 15, 2023</div>
+      <p>I recently started modeling and experimenting with polymer mixtures to optimize their radiation transport properties. Most of the test samples I make look like tiny <span style="color:#ff69b4">pink</span> cupcakes.</p>
+    </article>
+
+    <article>
+      <div class="date">April 17, 2021</div>
+      <p>The following k-effective contour plot was made using a deep neural network metamodel of MCNP6.2 simulations. This plot represents 0-4 kg of &alpha;-phase plutonium, homogeneously dispersed in a sphere of water, with one inch of water reflection.</p>
+      <div class="figs"><img src="images/contour1.png" alt=""></div>
+      <p>These results are very accurate (MAE = 2.5e-04) and outperform state-of-the-art spline fitting techniques by more than one order of magnitude. This graph is impossible to appreciate because it's more accurate than the width of the pixel of whatever monitor it's displayed on.</p>
+    </article>
+
+    <article>
+      <div class="date">April 16, 2021</div>
+      <p>Here are some graphs from assignments I completed when I was a graduate student at JHU. They were made with R and ggplot2 and formatted to appear as they do in the book <i>Getting Started with Minitab</i>, a piece of software I've never used.</p>
+      <div class="figs"><img src="images/columns.png" alt=""><img src="images/graphs.png" alt=""><img src="images/shipping.png" alt=""></div>
+      <p>The following graphs were from an airport TSA body scanner project, where I used R and Arena to simulate passenger queues, alarm rates, time delays, and wait times to determine how many scanners were needed to ensure less than 1% of passengers waited 30+ minutes. The first two sets of graphs were based on only a few simulations, which is why they appear spotty. These simulations were tested using real data from the Oakland International Airport.</p>
+      <div class="figs"><img src="images/tile1.png" alt=""><img src="images/tile2.png" alt=""><img src="images/tile3.png" alt=""></div>
+      <p>Even after switching luggage scanners in Terminal 2, the queue times of OAK are still the lowest in the nation for an airport of its size, geographic location, population density, and throughput.</p>
+    </article>
+
+    <article>
+      <div class="date">May 5, 2013</div>
+      <p>Have you ever operated a nuclear reactor? Yes? Well, have you ever achieved 500% reactor power by ejecting a rod from a four-loop Westinghouse PWR that was modified to burn MOX fuel?</p>
+      <div class="figs"><img src="images/power.jpg" alt=""></div>
+    </article>
+
+    <article>
+      <div class="date">January 10, 2011</div>
+      <blockquote>"All the speed he took, all the turns he'd taken and the corners he'd cut in Night City, and still he'd see the matrix in his sleep, bright lattices of logic unfolding across that colorless void." -William Gibson</blockquote>
+    </article>
+
+  </div>
+</section>
+
+
+<footer>&copy; 2026 William Zywiec</footer>
+</main>
+</div>
+
+<div id="lb"><img alt=""></div>
+<script>
+const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+document.querySelectorAll('.feature img, .thumb img, .figs img').forEach(i=>{
+  i.addEventListener('click',()=>{lbi.src=i.src;lb.classList.add('on');});
+});
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
+</script>
+<script>
+(function(){var a=document.querySelector('aside'),p=a.querySelector('img.portrait');
+var m=document.querySelector('main'),h1=a.querySelector('h1');
+function fit(){ if(innerWidth<=900){p.style.maxHeight='';m.style.paddingTop='';return;}
+  // shrink the picture only if the pane would not fit; then center the pane vertically
+  p.style.maxHeight='none'; a.style.height='auto'; var other=a.offsetHeight-p.offsetHeight; a.style.height='';
+  p.style.maxHeight=Math.max(60,innerHeight-other)+'px';
+  // right pane starts level with the name
+  m.style.paddingTop=Math.round(h1.getBoundingClientRect().top+scrollY*0)+'px'; }
+addEventListener('resize',fit); if(p.complete)fit(); else p.addEventListener('load',fit); fit();})();
+</script>
+<script>
+// Left links: scroll so the rule under the section heading lines up with the rule under the name
+(function(){
+  var h1=document.querySelector('aside h1');
+  document.querySelectorAll('aside nav a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(innerWidth<=900)return;
+      var sec=document.querySelector(a.getAttribute('href')),h=sec&&sec.querySelector('h2');if(!h)return;
+      e.preventDefault();
+      scrollTo({top:scrollY+h.getBoundingClientRect().bottom-h1.getBoundingClientRect().bottom,behavior:'smooth'});
+      history.replaceState(null,'',a.getAttribute('href'));
+    });
+  });
+})();
+</script>
+<script>
+// iPhone: lock initial zoom to the device width, re-enable pinch zoom on gesture (from the original site's scale.fix.js)
+(function(){var m=document.querySelector('meta[name=viewport]');
+if(m&&/iPhone/i.test(navigator.userAgent)){m.content="width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+document.addEventListener("gesturestart",function(){m.content="width=device-width, minimum-scale=0.25, maximum-scale=1.6";},false);}})();
+</script>
+</body>
 </html>
