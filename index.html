@@ -8,11 +8,11 @@
 <style>
 :root{
   --bg:#fbfaf7; --panel:#ffffff; --ink:#1d2228; --muted:#5d6670; --rule:#e3e0d8;
-  --accent:#0b4f9c; --accent-soft:#e8eff8; --tag:#f1efe9;
+  --accent:#0b4f9c; --accent-soft:#e8eff8; --tag:#f1efe9; --disc:#000;
 }
 @media (prefers-color-scheme: dark){
   :root{ --bg:#14171b; --panel:#1b1f24; --ink:#e7e9ec; --muted:#9aa3ad; --rule:#2c3238;
-         --accent:#7fb2f0; --accent-soft:#1f2a38; --tag:#242a31; }
+         --accent:#7fb2f0; --accent-soft:#1f2a38; --tag:#242a31; --disc:var(--bg); }
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -31,7 +31,7 @@ aside p.disclaimer{font-size:11px;line-height:1.5}
 aside nav{font-family:Arial, Helvetica, sans-serif;font-size:14px;margin:20px 0;border-top:1px solid var(--rule);padding-top:14px}
 aside nav a{display:block;padding:3px 0;color:var(--ink);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600} aside nav a:hover{color:var(--accent);text-decoration:none}
 .social{display:flex;gap:12px;margin-top:8px}
-.social a{display:block;line-height:0} .social .ico{display:block;width:38px;height:38px;background:var(--ink);opacity:.9;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat} .social a:hover .ico{opacity:1}
+.social a{display:block;line-height:0} .social .ico{display:block;position:relative;width:38px;height:38px;background:#fff;border-radius:50%;opacity:.9} .social .ico::after{content:"";position:absolute;inset:3px;background:var(--disc);-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat} .social a:hover .ico{opacity:1}
 main{padding-top:40px}
 main h2{font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
   font-family:Arial, Helvetica, sans-serif;font-weight:600;line-height:1.15;margin:0 0 16px;padding-bottom:15px;border-bottom:1px solid var(--rule)}
