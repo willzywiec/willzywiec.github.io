@@ -59,14 +59,14 @@ section{margin-bottom:56px;scroll-margin-top:24px}
 .log .figs{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
 .log .figs:last-child{margin-bottom:0}
 .log .figs + p{margin-top:0}
-.log .figs img{height:150px;border:1px solid var(--rule);border-radius:4px;cursor:zoom-in;background:#fff}
+.log .figs img{height:150px;border:1px solid var(--rule);border-radius:4px;cursor:zoom-in;background:#fff} .log .figs img.nozoom{cursor:default}
 blockquote{margin:6px 0 0;padding-left:14px;border-left:3px solid var(--rule);font-style:italic}
 .video-box{max-width:400px}
 .video{position:relative;padding-top:56.25%;border-radius:8px;overflow:hidden;border:1px solid var(--rule)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 footer{font-family:Arial, Helvetica, sans-serif;font-size:12.5px;color:var(--muted);padding-top:12px;border-top:1px solid var(--rule)}
 #lb{position:fixed;inset:0;background:rgba(10,12,15,.88);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;z-index:10}
-#lb.on{display:flex} #lb img{max-width:100%;max-height:100%;background:#fff;border-radius:4px}
+#lb.on{display:flex} #lb img{max-width:none;max-height:none;background:#fff;border-radius:4px}
 @media (max-width:900px){
   .wrap{padding:28px 16px} aside{margin-bottom:28px}
   aside{position:static;width:auto;height:auto;display:block;padding:0;overflow:visible} main{padding-top:0!important} aside img.portrait{max-width:320px;max-height:none;width:100%}
@@ -106,8 +106,8 @@ html,body{overflow-x:hidden}
   <div class="social">
     <a href="https://github.com/willzywiec" target="_blank"><img src="images/github.png" alt="GitHub"></a>
     <a href="https://www.linkedin.com/in/william-zywiec-363812137/" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
-    <a href="https://github.com/alphanso-org/alphanso" target="_blank" title="ALPHANSO"><img src="images/alphanso_logo.png" alt="ALPHANSO"></a>
-    <a href="https://news.ycombinator.com/" target="_blank" title="Hacker News"><img src="images/hn.svg?v=4" alt="Hacker News"></a>
+    <a href="https://github.com/alphanso-org/alphanso" target="_blank" title="ALPHANSO"><img src="images/alphanso_icon.png" alt="ALPHANSO"></a>
+    <a href="https://news.ycombinator.com/" target="_blank" title="Hacker News"><img src="images/hn.png" alt="Hacker News"></a>
   </div>
 </aside>
 
@@ -183,7 +183,7 @@ html,body{overflow-x:hidden}
     <article>
       <div class="date">June 15, 2023</div>
       <p>Whenever I run a physics code that crashes with nondescript error messages:</p>
-      <div class="figs"><img src="images/frodo.png" alt=""></div>
+      <div class="figs"><img class="nozoom" src="images/frodo.png" alt=""></div>
     </article>
 
     <article>
@@ -229,8 +229,14 @@ html,body{overflow-x:hidden}
 <div id="lb"><img alt=""></div>
 <script>
 const lb=document.getElementById('lb'), lbi=lb.querySelector('img');
-document.querySelectorAll('.feature img, .thumb img, .figs img').forEach(i=>{
-  i.addEventListener('click',()=>{lbi.src=i.src;lb.classList.add('on');});
+// every zoomed image fits the same box (up to 900 x 640 px, smaller on small screens), whatever its native size
+function lbFit(){ if(!lbi.naturalWidth)return;
+  var W=Math.min(900,innerWidth*0.9), H=Math.min(640,innerHeight*0.85),
+      s=Math.min(W/lbi.naturalWidth, H/lbi.naturalHeight);
+  lbi.style.width=Math.round(lbi.naturalWidth*s)+'px'; lbi.style.height=Math.round(lbi.naturalHeight*s)+'px'; }
+lbi.addEventListener('load',lbFit); addEventListener('resize',lbFit);
+document.querySelectorAll('.feature img, .thumb img, .figs img:not(.nozoom)').forEach(i=>{
+  i.addEventListener('click',()=>{lbi.src=i.src;lb.classList.add('on');if(lbi.complete)lbFit();});
 });
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
